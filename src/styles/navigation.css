@@ -1,9 +1,9 @@
 .navbar {
-
-}
-
-.navbar * {
-  /* outline: 1px solid red; */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: linear-gradient(180deg, #000000 0%, rgba(14, 14, 28, 0.77046) 71.05%, rgba(17, 16, 33, 0.0001) 100%);
 }
 
 .navbar .navbar__items {
