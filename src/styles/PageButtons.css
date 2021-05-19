@@ -1,0 +1,19 @@
+.pagination .button {
+    background-color: #FFFFFF;
+    padding: 2px 6px;
+    font-size: 12px;
+    outline: none;
+    border: 0.6px solid #FFFFFF;
+    border-radius: 3.6px;
+    margin-left: 4px;
+    color: #F3353E;
+    text-align: center;
+}
+.pagination .button:hover {
+    background: #F3353E;
+    /* mix-blend-mode: normal; */
+    opacity: 0.61;
+    border-color: #FF6B00;
+    /* box-sizing: border-box; */ 
+    color: #FFFFFF;
+}
