@@ -1,123 +1,55 @@
 import React from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-import Avengers from '../images/Avengers.jpg';
-import '../styles/movies.css';
-import stars from '../images/stars.svg';
+import Header from '../reuseables/Header';
+import PageButtons from '../reuseables/PageButtons';
+import '../styles/Movies.css';
+import Card from '../reuseables/Card';
+import Aquaman from '../images/Aquaman.png';
+import Avatar from '../images/Avatar.png';
+import Pirates from '../images/Pirates.png';
+import Card2 from '../reuseables/Card2';
+import Kesari from '../images/Kesari.png';
+import Manikarnika from '../images/Manikarnika.png';
+import Uri from '../images/Uri.png';
+import Singham from '../images/Singham.png';
+import Thackeray from '../images/Thackeray.png';
 
 const Movies = () => {
-  const indicatorStyles = {
-      background: '#ffffff',
-      width: 30,
-      height: 4,
-      borderRadius: 2,
-      display: 'inline-block',
-      margin: '0 2px',
-      opacity: 0.36
-  };
-
-  const customIndicator = (clickHandler, isSelected, index, label) => {
-    if (isSelected) {
-      return (
-          <li
-              style={{ ...indicatorStyles, background: '#FF6B00', opacity: 1 }}
-              aria-label={`Selected: ${label} ${index + 1}`}
-              title={`Selected: ${label} ${index + 1}`}
-          />
-      );
-    }
     return (
-        <li
-            style={indicatorStyles}
-            onClick={clickHandler}
-            onKeyDown={clickHandler}
-            value={index}
-            key={index}
-            role="button"
-            tabIndex={0}
-            title={`${label} ${index + 1}`}
-            aria-label={`${label} ${index + 1}`}
-        />
-    );
-  }
+        <div className="container movies">
+            <header className="movies__header">
+                <Header
+                    title='TOP RATED'
+                    subtitle='RECOMMENDED MOVIES'
+                />
+                <PageButtons />
+            </header>
 
-  return (
-    <section className="movies">
-      <Carousel
-        // autoPlay
-        infiniteLoop
-        showArrows={false}
-        showThumbs={false}
-        showStatus={false}
-        renderIndicator={customIndicator}
-      >
-        <div className="carousel__item">
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <div className="header">
-              <h1 className="header__title">31 SEPT 2019</h1>
-              <h2 className="header__subtitle">AVENGERS - INFINITY WAR</h2>
+            <div className="cards">
+                <Card image={Aquaman} title="AQUAMAN" subtext="Aquaman is a 2018 American superhero film based on the DC Comics character of the same ..... For the sequence, the actors were shot in a pool of water against blue screen backgrounds, with Digital Domain adding CG extensions, waterfalls" />
+                <Card image={Avatar} title="AVATAR" subtext="Aquaman is a 2018 American superhero film based on the DC Comics character of the same ..... For the sequence, the actors were shot in a pool of water against blue screen backgrounds, with Digis" />
+                <Card image={Pirates} title="PIRATES OF CARIBBEAN" subtext="Aquaman is a 2018 American superhero film based on the DC Comics character of the same ..... For the sequence, the actors were shot." />     
             </div>
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
+            <div className="categories">
+                <div className="categories__nav--items">
+                    <ul className="nav__links">
+                        <li className="nav__link active">Latest</li>
+                        <li className="nav__link">Popular</li>
+                        <li className="nav__link">Upcoming</li>
+                    </ul> 
+                    <div><PageButtons /></div>   
+                </div>
             </div>
-          </div>
+            
+            <div className="card2__category">
+                <Card2 image={Uri} />
+                <Card2 image={Manikarnika} />
+                <Card2 image={Thackeray} />
+                <Card2 image={Kesari} />
+                <Card2 image={Singham} />
+            </div>
         </div>
-        <div className="carousel__item">
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <div className="header">
-              <h1 className="header__title">31 SEPT 2019</h1>
-              <h2 className="header__subtitle">AVENGERS - INFINITY WAR</h2>
-            </div>
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel__item"> 
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <div className="header">
-              <h1 className="header__title">31 SEPT 2019</h1>
-              <h2 className="header__subtitle">AVENGERS - INFINITY WAR</h2>
-            </div>
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel__item"> 
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <div className="header">
-              <h1 className="header__title">31 SEPT 2019</h1>
-              <h2 className="header__subtitle">AVENGERS - INFINITY WAR</h2>
-            </div>
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Carousel>
-    </section>
-  );
+    )
 }
 
-export default Movies;
+
+export default Movies

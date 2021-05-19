@@ -1,0 +1,26 @@
+/****************
+    HEADER
+ ****************/
+.header {
+    text-transform: uppercase;
+    color: #FFFFFF
+}
+.header .header__title {
+    font-weight: 400;
+    font-size: 1.125rem;
+}
+
+.header .header__subtitle { 
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 10px;
+    text-shadow: 0rem 0.125rem 2.875rem rgba(0, 0, 0, 0.874399);
+}
+
+.header .header__subtitle::after {
+    content: "";
+    width: 430px;
+    border-top: 0.05px solid #FFFFFF; 
+    display: block;
+    margin-bottom: 0.993rem;
+}
