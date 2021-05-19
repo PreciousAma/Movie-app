@@ -1,0 +1,78 @@
+.movies {
+    margin-top: 90px;
+}
+
+
+.movies .movies__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.movies .subtitle {
+    letter-spacing: 5px;
+}
+
+/* card */
+
+.movies .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+/* Categories */
+
+.categories {
+    margin-top: 80px;
+}
+
+.categories .categories__nav--items {
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.categories .nav__links {
+    display: flex;
+    list-style: none;
+}
+
+.categories .nav__link:not(:last-of-type) {
+    margin-right: 2rem;
+}
+
+.categories .nav__link {
+    cursor: pointer;
+    color: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 18px
+}
+
+.nav__link.active {
+   opacity: 1;
+   display: flex;
+   flex-direction: column;
+   width: fit-content; 
+}
+
+.nav__link.active::after {
+    content: " ";
+    height: 3px;
+    width: 100%;
+    background-color: #F3353E;
+    margin-top: 6px;
+}
+
+
+/* category cards */
+.card2__category {
+    display: flex;
+    margin-top: 22px;
+    justify-content: space-between;
+}
+

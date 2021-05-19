@@ -1,0 +1,34 @@
+.card3 {
+    /* align-items: center;  */
+    display: flex;
+    flex-direction: column;
+    flex-basis: 15.2%;
+    position: relative; 
+    border-radius: 6px; 
+    color: white;
+    background: #263346;
+}
+
+.card3 .card3__image {
+    display: flex;
+    border-radius: 6px;
+}
+
+.card3 .image {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.card3 .card3__texts {
+    padding: 12px 2px 15px 14px;
+}
+
+.card3__texts .text {
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.text span {
+    display: block;
+}

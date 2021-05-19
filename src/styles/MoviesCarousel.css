@@ -1,17 +1,25 @@
-.movies {
+.moviescarousel {
     height: auto;
+    display: none;
 }
 
 .carousel-root {
-    height: 100vh;
+        
+    height: 657px;
 }
 
 .carousel-root .carousel.carousel-slider,
 .carousel-root .slider-wrapper,
 .carousel-root .slider,
-.carousel .slide {
+.carousel .slide,
+.carousel-root .carousel__item {
     height: 100%;
 }
+
+.carousel-root .carousel__item {
+    background-color:rgba(0, 0, 0, 0.581342) ;
+}
+
 
 .carousel-root .carousel__item::before {
     content: "";
@@ -24,48 +32,20 @@
 }
 
 .carousel-root .control-dots {
-    bottom: 100.54px;
+    bottom: 60.54px;
     right: 7%;
 }
-
-.carousel-root .item__image {
-    /* height: 100%; */
-    outline: 1px solid red;
-}
-
 
 .carousel-root .item__text {
     position: absolute;
     left: 7%;
     color: #ffffff;
     text-align: left;
-    bottom: 140px;
+    bottom: 100px;
     padding: 7.5rem 1.25rem 0rem;
     z-index: 2;
 }
-/****************
-    HEADER
- ****************/
 
-.header .header__title {
-    font-weight: 400;
-    font-size: 1.125rem;
-}
-
-.header .header__subtitle { 
-    font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 10px;
-    text-shadow: 0rem 0.125rem 2.875rem rgba(0, 0, 0, 0.874399);
-}
-
-.header .header__subtitle::after {
-    content: "";
-    width: 430px;
-    border-top: 0.05px solid #FFFFFF; 
-    display: block;
-    margin-bottom: 0.993rem;
-}
 
 .item__text .summary__text {
     font-weight: 400;
@@ -100,3 +80,9 @@
         bottom: 200px;
     }
 } */
+
+@media only screen and (min-width: 1280px) {
+    .moviescarousel {
+        display: block;
+    }
+}
