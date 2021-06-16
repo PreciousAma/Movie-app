@@ -13,13 +13,14 @@
 .header .header__subtitle { 
     font-weight: 700;
     font-size: 2rem;
+    width: fit-content;
     letter-spacing: 10px;
     text-shadow: 0rem 0.125rem 2.875rem rgba(0, 0, 0, 0.874399);
 }
 
 .header .header__subtitle::after {
     content: "";
-    width: 430px;
+    width: 100%;
     border-top: 0.05px solid #FFFFFF; 
     display: block;
     margin-bottom: 0.993rem;

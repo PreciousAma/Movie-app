@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Avengers from '../images/Avengers.jpg';
@@ -6,8 +6,36 @@ import '../styles/MoviesCarousel.css';
 import stars from '../images/stars.svg';
 import Header from '../reuseables/Header';
 import '../styles/Header.css';
+import { Api } from '../utils/Api';
+import format from 'date-fns/format';
+import ReactStarsRating from 'react-awesome-stars-rating';
 
 const MoviesCarousel = () => {
+  const [data, setData] = useState([]);
+  console.log(data);
+  // PROMISE .then() .catch()
+  // const getNowPlayingMovies = () => {
+  //   Api.get('/movie/now_playing')
+  //   .then((response) => console.log({ response }))
+  //   .catch((error) => console.log({ error: error.message }))
+  // }
+  // getNowPlayingMovies();
+
+  useEffect(() => {
+    getNowPlayingMovies();
+  }, []);
+
+// ASYNC/AWAIT more clarity.
+  const getNowPlayingMovies = async () => {
+    try {
+      const { data } = await Api.get('/movie/now_playing');
+      setData(data.results.slice(0, 4));
+    } catch(error) {
+      const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
+      console.log({ errorMessage });
+    }
+  }
+
   const indicatorStyles = {
       background: '#ffffff',
       width: 30,
@@ -53,61 +81,31 @@ const MoviesCarousel = () => {
         showStatus={false}
         renderIndicator={customIndicator}
       >
-        <div className="carousel__item">
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <Header 
-            title='31 SEPTEMBER 2019'
-            subtitle='AVENGERS - INFINITY WAR'
-            />
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
+        {data.map((carousel) => (
+          <div key={carousel.id} className="carousel__item">
+            <img src={Avengers} alt="carousel1" className="item__image" />
+            <div className="item__text">
+              <Header
+                title={format(new Date(carousel.release_date), "dd  MMM  yyyy")}
+                subtitle={carousel.original_title}
+              />
+              <div className="summary">
+                <p className="summary__text">{carousel.overview} </p>
+                <div className="ratings">
+                <ReactStarsRating 
+                  isEdit={false}
+                  size={20}
+                  starGap={4}
+                  className="rating"
+                  value={carousel.vote_average/2}
+                  primaryColor='#ED8A19'
+                />
+                  <span className="reviews">{carousel.vote_count}  Votes</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="carousel__item">
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <Header />
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel__item"> 
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <Header />
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="carousel__item"> 
-          <img src={Avengers} alt="carousel1" className="item__image" />
-          <div className="item__text">
-            <Header />
-            <div className="summary">
-              <p className="summary__text">In 2016, Marvel shortened the title to Avengers: Infinity War. Filming began in January 2017 at Pinewood Atlanta Studios in Fayette County, Georgia, with a large cast consisting mostly of actors. </p>
-              <div className="ratings">
-                <img src={stars} alt="stars" className="star-icons" />
-                <span className="reviews">12K Reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </Carousel>
     </section>
   );
