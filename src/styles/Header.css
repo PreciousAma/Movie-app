@@ -14,6 +14,7 @@
     font-weight: 700;
     font-size: 2rem;
     width: fit-content;
+    max-width: 563.41px;
     letter-spacing: 10px;
     text-shadow: 0rem 0.125rem 2.875rem rgba(0, 0, 0, 0.874399);
 }

@@ -3,7 +3,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Avengers from '../images/Avengers.jpg';
 import '../styles/MoviesCarousel.css';
-import stars from '../images/stars.svg';
 import Header from '../reuseables/Header';
 import '../styles/Header.css';
 import { Api } from '../utils/Api';
@@ -83,7 +82,7 @@ const MoviesCarousel = () => {
       >
         {data.map((carousel) => (
           <div key={carousel.id} className="carousel__item">
-            <img src={Avengers} alt="carousel1" className="item__image" />
+            <img src={`https://image.tmdb.org/t/p/original${carousel.backdrop_path}`} alt="carousel1" className="item__image" />
             <div className="item__text">
               <Header
                 title={format(new Date(carousel.release_date), "dd  MMM  yyyy")}
