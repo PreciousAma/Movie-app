@@ -35,7 +35,7 @@ const Movies = () => {
                         <li className="nav__link active">Latest</li>
                         <li className="nav__link">Popular</li>
                         <li className="nav__link">Upcoming</li>
-                    </ul> 
+                    </ul>
                     <div><PageButtons /></div>   
                 </div>
             </div>
@@ -51,5 +51,4 @@ const Movies = () => {
     )
 }
 
-
-export default Movies
+export default Movies;
