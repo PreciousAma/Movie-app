@@ -1,11 +1,30 @@
 import React from 'react';
+import { FlickingError } from '@egjs/react-flicking';
 import '../styles/PageButtons.css';
 
-const PageButtons = () => {
+const PageButtons = ({ flicking }) => {
+    const handleNext = () => {
+        flicking
+            .next()
+            .catch(err => {
+                if (err instanceof FlickingError) return;
+                throw err;
+            });
+    }
+
+    const handlePrev = () => {
+        flicking
+            .prev()
+            .catch(err => {
+                if (err instanceof FlickingError) return;
+                throw err;
+            });
+    }
+    
     return (
         <div className="pagination">
-            <button className='button'><i className="fas fa-angle-left"></i></button>
-            <button className='button'><i className="fas fa-angle-right"></i></button>
+            <button className='button' onClick={handlePrev}><i className="fas fa-angle-left" /></button>
+            <button className='button' onClick={handleNext}><i className="fas fa-angle-right" /></button>
         </div>
         
     )

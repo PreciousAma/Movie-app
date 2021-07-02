@@ -10,7 +10,6 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 
 const MoviesCarousel = () => {
   const [data, setData] = useState([]);
-  console.log(data);
   // PROMISE .then() .catch()
   // const getNowPlayingMovies = () => {
   //   Api.get('/movie/now_playing')
@@ -30,7 +29,7 @@ const MoviesCarousel = () => {
       setData(data.results.slice(0, 4));
     } catch(error) {
       const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
-      console.log({ errorMessage });
+      console.error({ errorMessage });
     }
   }
 
@@ -72,7 +71,6 @@ const MoviesCarousel = () => {
   return (
     <section className="moviescarousel">
       <Carousel
-        // autoPlay
         infiniteLoop
         showArrows={false}
         showThumbs={false}

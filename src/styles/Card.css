@@ -8,6 +8,7 @@
     /* padding: 2rem 2rem 0rem 2rem; */
     position: relative; 
     margin-top: 22px; 
+    margin-right: 2.75%;
 }
 
 .card .card__image {
@@ -41,13 +42,15 @@
 }
 
 .card .ratings {
+    display: flex;
+    align-items: center;
     align-self: flex-start;
     color: #FFFFFF;
     margin-top: auto;
 }
 
-
-
-
-
-
+.card .ratings .rating, 
+.card .ratings .star {
+    display: inline-flex;
+    align-items: center;
+}
