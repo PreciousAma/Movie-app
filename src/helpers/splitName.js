@@ -1,4 +1,4 @@
-const splitName = (text) => {
+const splitName = (text = "") => {
     const [firstname, ...others] = text.split(" "); 
 
     return [firstname, others.join(" ")];
