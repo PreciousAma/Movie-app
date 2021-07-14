@@ -11,13 +11,14 @@ const FeaturedActors = ({ currentActor }) => {
 
     useEffect(() => {
       getActorsDetails();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentActor]);
 
       
 
     const getActorsDetails = async () => {
         try {
-          const { data } = await Api.get(`/person/${currentActor || 1245}`);
+          const { data } = await Api.get(`/person/${currentActor}`);
           setData(data);
         } catch (error) {
           const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;

@@ -11,13 +11,14 @@ const MoviesCredits = ({ currentActor }) => {
     useEffect(() => {
         setIsLoading(true);
         getMoviesCredits();
-    }, [currentActor])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentActor]);
 
     const getMoviesCredits = async () => {
         try {
-          const { data } = await Api.get(`/person/${currentActor || 1245}/movie_credits`);
-          console.log(data);
-          setResult(data.cast);
+          const { data } = await Api.get(`/person/${currentActor}/movie_credits`);
+          const sortedMovies = data.cast.sort((a, b) => new Date(b.release_date) - new Date(a.release_date) );
+          setResult(sortedMovies);
           setIsLoading(false);
         } catch (error) {
           const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
@@ -25,7 +26,6 @@ const MoviesCredits = ({ currentActor }) => {
         } finally {
           setIsLoading(false);
         }
-
     }    
 
     return (

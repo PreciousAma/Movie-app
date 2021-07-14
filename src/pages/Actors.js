@@ -10,7 +10,7 @@ import Flicking from "@egjs/react-flicking";
 
 
 const Actors = ({ name }) => {
-    const [data, setData] = useState([]);
+    const [actors, setActors] = useState([]);
     const [flick, setFlick] = useState(null);
     const flicking = useRef(null);
     const [currentActor, setCurrentActor] = useState('');
@@ -29,7 +29,10 @@ const Actors = ({ name }) => {
     const getTopActors = async () => {
         try {
           const { data } = await Api.get('/person/popular');
-          setData(data.results);
+          setActors(data.results);
+          const resultsLength = data.results.length;
+          const randomNumber = Math.floor(Math.random() * resultsLength);
+          setCurrentActor(data.results[randomNumber].id);
         } catch (error) {
           const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
           console.error({ errorMessage });
@@ -50,13 +53,13 @@ const Actors = ({ name }) => {
             moveType="freeScroll"
             preventClickOnDrag
          >
-         {data.map((card, index) => (
+         {actors.map((actor, index) => (
             <Card3
-              key={card.id}
-              onClick={() => setCurrentActor(card.id)}
+              key={actor.id}
+              onClick={() => setCurrentActor(actor.id)}
               index={index}
-              image={`https://image.tmdb.org/t/p/original${card.profile_path}`}
-              text={card.name}
+              image={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
+              text={actor.name}
             />
           ))}
          </Flicking>
@@ -64,7 +67,6 @@ const Actors = ({ name }) => {
 
         </section>
     );
-
 }
 
 export default Actors;
