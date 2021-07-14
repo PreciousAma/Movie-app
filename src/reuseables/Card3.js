@@ -3,11 +3,11 @@ import '../styles/Card3.css';
 import splitName from '../helpers/splitName';
 
 
-const Card3 = ({image, text}) => {
+const Card3 = ({image, text, onClick}, ref) => {
     const [firstname, others] = splitName(text);
          
     return (
-      <div className="card3">
+      <div className="card3" ref={ref} onClick={onClick}>
             <div className="card3__image">
                 <img src={image} alt="poster" className="image" />
             </div>
@@ -22,4 +22,4 @@ const Card3 = ({image, text}) => {
     )
 }
 
-export default Card3;
+export default React.forwardRef(Card3);
