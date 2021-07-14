@@ -13,7 +13,7 @@ const Actors = ({ name }) => {
     const [data, setData] = useState([]);
     const [flick, setFlick] = useState(null);
     const flicking = useRef(null);
-    const [currentActor, setCurrentActor] = useState("");
+    const [currentActor, setCurrentActor] = useState('');
 
 
     useEffect(() => {
@@ -48,6 +48,7 @@ const Actors = ({ name }) => {
             ref={flicking} 
             bound 
             moveType="freeScroll"
+            preventClickOnDrag
          >
          {data.map((card, index) => (
             <Card3
@@ -59,7 +60,7 @@ const Actors = ({ name }) => {
             />
           ))}
          </Flicking>
-         <FeaturedActors currentActor={currentActor} />
+         {currentActor && <FeaturedActors currentActor={currentActor} />}
 
         </section>
     );
