@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import React, { useState, useEffect, useRef } from 'react';
+import Flicking from "@egjs/react-flicking";
+import { AutoPlay } from "@egjs/flicking-plugins";
 import '../styles/MoviesCarousel.css';
 import Header from '../reuseables/Header';
 import '../styles/Header.css';
@@ -10,6 +10,7 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 
 const MoviesCarousel = () => {
   const [data, setData] = useState([]);
+   const flicking = useRef(null);
   // PROMISE .then() .catch()
   // const getNowPlayingMovies = () => {
   //   Api.get('/movie/now_playing')
@@ -33,49 +34,16 @@ const MoviesCarousel = () => {
     }
   }
 
-  const indicatorStyles = {
-      background: '#ffffff',
-      width: 30,
-      height: 4,
-      borderRadius: 2,
-      display: 'inline-block',
-      margin: '0 2px',
-      opacity: 0.36
-  };
-
-  const customIndicator = (clickHandler, isSelected, index, label) => {
-    if (isSelected) {
-      return (
-          <li
-              style={{ ...indicatorStyles, background: '#FF6B00', opacity: 1 }}
-              aria-label={`Selected: ${label} ${index + 1}`}
-              title={`Selected: ${label} ${index + 1}`}
-          />
-      );
-    }
-    return (
-        <li
-            style={indicatorStyles}
-            onClick={clickHandler}
-            onKeyDown={clickHandler}
-            value={index}
-            key={index}
-            role="button"
-            tabIndex={0}
-            title={`${label} ${index + 1}`}
-            aria-label={`${label} ${index + 1}`}
-        />
-    );
-  }
-
+  const plugins = [new AutoPlay({ duration: 2000, direction: "NEXT", stopOnHover: true })];
+  
   return (
     <section className="moviescarousel">
-      <Carousel
-        infiniteLoop
-        showArrows={false}
-        showThumbs={false}
-        showStatus={false}
-        renderIndicator={customIndicator}
+      <Flicking 
+        align="prev"
+        ref={flicking}
+        circular
+        moveType="snap"
+        plugins={plugins}
       >
         {data.map((carousel) => (
           <div key={carousel.id} className="carousel__item">
@@ -102,7 +70,7 @@ const MoviesCarousel = () => {
             </div>
           </div>
         ))}
-      </Carousel>
+      </Flicking>
     </section>
   );
 }
