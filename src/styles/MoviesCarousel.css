@@ -4,7 +4,7 @@
 }
 
 .moviescarousel .flicking-viewport {
-    height: 657px;
+    height: 100vh;
 }
 
 
@@ -12,11 +12,13 @@
     height: 100%;
     width: 100%;
     position: relative;
-}
+}    
 
 .moviescarousel .carousel__item .item__image {
    width: 100%;
-   height: auto; 
+   height: 100%;
+   position: absolute;
+   bottom: 0; 
 }
 
 .moviescarousel .flicking-viewport .carousel__item::before {
@@ -31,7 +33,7 @@
 
 .moviescarousel .flicking-viewport .item__text {
     position: absolute;
-    left: 7%;
+    left: 2%;
     color: #ffffff;
     text-align: left;
     bottom: 100px;
