@@ -1,6 +1,6 @@
 .pagination .button {
     background-color: #FFFFFF;
-    padding: 2px 6px;
+    padding: 6px 10px;
     font-size: 12px;
     outline: none;
     border: 0.6px solid #FFFFFF;
@@ -8,12 +8,20 @@
     margin-left: 4px;
     color: #F3353E;
     text-align: center;
+    display: none;
 }
 .pagination .button:hover {
     background: #F3353E;
     /* mix-blend-mode: normal; */
     opacity: 0.61;
     border-color: #FF6B00;
+    cursor: pointer;
     /* box-sizing: border-box; */ 
     color: #FFFFFF;
+}
+
+@media only screen and (min-width: 1280px) {
+    .pagination .button {
+        display: unset;
+    }
 }

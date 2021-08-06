@@ -3,6 +3,7 @@
     /* display: none; */
 }
 
+
 .moviescarousel .flicking-viewport {
     height: 100vh;
 }
@@ -29,6 +30,14 @@
     bottom: 0;
     background: linear-gradient(226.86deg, rgba(0, 0, 0, 0.0001) 7.78%, rgba(0, 0, 0, 0.271141) 32.64%, rgba(0, 0, 0, 0.916139) 81.2%, rgba(0, 0, 0, 0.881342) 88.59%, #000000 99.46%);
     z-index: 1;
+}
+
+.moviescarousel .header .header__title {
+    font-size: 18px;
+}
+
+.moviescarousel .header .header__subtitle {
+    font-size: 32px;
 }
 
 .moviescarousel .flicking-viewport .item__text {
@@ -149,6 +158,19 @@
         bottom: 200px;
     }
 } */
+
+@media only screen and (min-width: 1024px) {
+    .moviescarousel .flicking-viewport .item__text {
+        position: absolute;
+        left: 7%;
+        color: #ffffff;
+        text-align: left;
+        bottom: 100px;
+        padding: 7.5rem 1.25rem 0rem;
+        z-index: 2; 
+    }  
+}
+
 
 @media only screen and (min-width: 1280px) {
     .moviescarousel {
