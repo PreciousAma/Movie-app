@@ -29,9 +29,6 @@ const FeaturedActors = ({ currentActor }) => {
     const [firstname, othernames] = splitName(data.name);
     return (
         <section className="featured-actor">
-          <div className="featured-actor__nav--items">
-            <h2 className="nav__link active">Movies</h2>
-          </div>
           <div className="featured-actor__content">
             <div className="featured-actor__texts">
               <h2 className="title">
@@ -43,6 +40,7 @@ const FeaturedActors = ({ currentActor }) => {
             </div>
             <MoviesCredits 
             currentActor={currentActor} />
+
           </div>
         </section>
     )

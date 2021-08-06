@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {configResponsive} from 'ahooks';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "@egjs/react-flicking/dist/flicking.css";
 
 
+configResponsive({
+     'xs': 0,
+     'sm': 375,
+     'md': 768,
+     'lg': 1024,
+     'xl': 1280,
+ });
 
 ReactDOM.render (
   <App />,

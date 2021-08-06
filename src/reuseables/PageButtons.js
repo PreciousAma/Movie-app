@@ -23,8 +23,8 @@ const PageButtons = ({ flicking }) => {
     
     return (
         <div className="pagination">
-            <button className='button' onClick={handlePrev}><i className="fas fa-angle-left" /></button>
-            <button className='button' onClick={handleNext}><i className="fas fa-angle-right" /></button>
+            <button className='button' onClick={handlePrev}><i className="fas fa-angle-left fa-2x" /></button>
+            <button className='button' onClick={handleNext}><i className="fas fa-angle-right fa-2x" /></button>
         </div>
         
     )

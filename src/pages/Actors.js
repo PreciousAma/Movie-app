@@ -52,6 +52,7 @@ const Actors = ({ name }) => {
             bound 
             moveType="freeScroll"
             preventClickOnDrag
+            className="flicking-actors"
          >
          {actors.map((actor, index) => (
             <Card3

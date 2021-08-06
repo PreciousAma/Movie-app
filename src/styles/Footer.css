@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     margin-top: 50px;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .footer .footer__img {
@@ -31,7 +31,7 @@
 }
 
 .footer .links {
-    margin-left: 13rem;
+    /* margin-left: 13rem; */
 }
 
 .footer .title {
@@ -49,4 +49,17 @@
     font-size: 16px;
     letter-spacing: 1.15556px;
     color: #8E96A2; 
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 1280px) {
+    .footer { 
+        justify-content: flex-start;
+    }
+
+    .footer .footer-image {
+        flex-basis: 30%;
+        margin-right: 29px;
+    }
 }
