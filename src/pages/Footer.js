@@ -5,7 +5,7 @@ import UMovies from '../images/UMovies.svg';
 const Footer = () => {
     return (
         <footer className="footer container">
-            <div>
+            <div className="footer-image">
                 <img className="footer__img" src={UMovies} alt="logo" />
                 <div className="social-icons">
                     <i className="fab fa-facebook-f icon"></i>

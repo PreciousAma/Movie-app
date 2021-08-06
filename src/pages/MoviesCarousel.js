@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {configResponsive, useResponsive} from 'ahooks';
+import {useResponsive} from 'ahooks';
 import Flicking from "@egjs/react-flicking";
 import { AutoPlay } from "@egjs/flicking-plugins";
 import '../styles/MoviesCarousel.css';
@@ -9,18 +9,10 @@ import { Api } from '../utils/Api';
 import format from 'date-fns/format';
 import ReactStarsRating from 'react-awesome-stars-rating';
 
-configResponsive({
-  small: 0,
-  middle: 800,
-  large: 1200,
-});
-
-
 const MoviesCarousel = () => {
   const [data, setData] = useState([]);
   const flicking = useRef(null);
   const responsive = useResponsive();
-  console.log(responsive);
 
   useEffect(() => {
     getNowPlayingMovies();
@@ -57,7 +49,6 @@ const MoviesCarousel = () => {
           backdrop_path: movie.images.backdrops.find((movie) => movie.iso_639_1 === 'en' || (movie.height === 1080 && movie.width === 1920)),
         })
       });
-      console.log({ newMoviesDetail });
       setData(newMoviesDetail);
     } catch(error) {
       const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
@@ -78,14 +69,14 @@ const MoviesCarousel = () => {
       >
         {data.map((carousel) => (
           <div key={carousel.id} className="carousel__item">
-            <img src={`https://image.tmdb.org/t/p/original${responsive.middle ? carousel.backdrop_path.file_path : carousel.poster_path.file_path }`} alt="carousel1" className="item__image" />
+            <img src={`https://image.tmdb.org/t/p/original${responsive.xl ? carousel.backdrop_path.file_path : carousel.poster_path.file_path }`} alt="carousel1" className="item__image" />
             <div className="item__text">
               <Header
                 title={format(new Date(carousel.release_date), "dd  MMM  yyyy")}
                 subtitle={carousel.original_title}
               />
               <div className="summary">
-                {responsive.middle ? <p className="summary__text">{carousel.overview}</p> : null}
+                {responsive.xl ? <p className="summary__text">{carousel.overview}</p> : null}
                 <div className="ratings">
                 <ReactStarsRating 
                   isEdit={false}

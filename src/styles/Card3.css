@@ -2,12 +2,12 @@
     /* align-items: center;  */
     display: flex;
     flex-direction: column;
-    flex-basis: 15.2%;
+    flex-basis: 45%;
     position: relative; 
     border-radius: 6px; 
     color: white;
     background: #263346;
-    margin-right: 1.76%;
+    margin-right: 4.5%;
     cursor: pointer;
 }
 
@@ -33,4 +33,24 @@
 
 .text span {
     display: block;
+}
+
+@media only screen and (min-width: 768px) {
+    .card3 {
+        flex-basis: 30%;
+        margin-right: 2.5%;
+    }   
+}
+
+@media only screen and (min-width: 1024px) {
+    .card3 {
+        flex-basis: 22%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .card3 {
+        flex-basis: 15.2%;
+        margin-right: 1.76%;
+    }
 }

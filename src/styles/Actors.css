@@ -1,6 +1,10 @@
 /* Actors */
 .actors {
-    margin-top: 90px;
+    margin-top: 5px;
+}
+
+.actors .flicking-actors {
+    margin-top: 22px;
 }
 
 .actors__header {
@@ -34,11 +38,13 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    flex-direction: column;
 }
 
 .featured-actor__content .featured-actor__items {
     display: flex;
     flex-basis: 70%;
+    flex-direction: column;
 }
 
 .featured-actor .featured-actor__nav--items {
@@ -55,7 +61,7 @@
     opacity: 0.5;
     text-transform: uppercase;
     font-size: 18px;
-    margin-left: 32.5%;
+    /* margin-left: 32.5%; */
 }
 
 .nav__link.active {
@@ -76,13 +82,14 @@
 
 /* featured actor cards */
 .featured-actor__card{
+    margin-top: 22px;
     display: flex;
     justify-content: space-between; 
     width: 100%;   
 }
 
 .featured-actor__card .card2 {
-    flex-basis: 24%;
+    flex-basis: 28%;
 }
 
 .featured-actor__card .card2 .image {
@@ -91,13 +98,12 @@
 
 
 
-
-
 /* featured actors texts */
 .featured-actor__texts {
     color: #FFFFFF;
     flex-basis: 30%;
     margin-right: 40px;
+    margin-bottom: 22px;
 }
 
 .featured-actor__texts .title span{
@@ -125,3 +131,35 @@
     letter-spacing: 1.3px;
     padding-bottom: 20px;
 } 
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 1280px) {
+    .actors {
+        margin-top: 90px;
+    }
+}  
+
+/* featured actors  */
+
+@media only screen and (min-width: 768px) {
+    .featured-actor__card .card2 {
+        flex-basis: 30%;
+    }
+
+}
+
+@media only screen and (min-width: 1280px) {
+    .featured-actor__content {
+        flex-direction: row;
+    }
+
+    .featured-actor__texts {
+        padding-top: 58px;
+    }
+    
+    .featured-actor__card .card2 {
+        flex-basis: 24%;
+    }
+}
+

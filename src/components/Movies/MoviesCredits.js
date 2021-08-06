@@ -31,6 +31,7 @@ const MoviesCredits = ({ currentActor }) => {
     return (
       <>
         {!isLoading ? <div className="featured-actor__items">
+          <h2 className="nav__link active">Movies</h2>
             <Flicking 
               align="prev"
               ref={flicking}

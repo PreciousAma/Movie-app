@@ -1,5 +1,5 @@
 .movies {
-    margin-top: 90px;
+    margin-top: 10px;
 }
 
 
@@ -26,7 +26,7 @@
 /* Categories */
 
 .categories {
-    margin-top: 80px;
+    margin-top: 5px;
 }
 
 .categories .categories__nav--items {
@@ -76,3 +76,14 @@
     justify-content: space-between;
 }
 
+@media only screen and (min-width: 1280px) {
+    .movies {
+        margin-top: 90px;
+    } 
+
+    /* Categories */
+    .categories {
+        margin-top: 80px;
+    }
+
+}
