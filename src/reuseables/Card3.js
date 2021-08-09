@@ -1,14 +1,16 @@
 import React from 'react';
 import '../styles/Card3.css';
 import splitName from '../helpers/splitName';
-import { animateScroll as scroll } from 'react-scroll'; 
+import { scroller } from 'react-scroll'; 
 
 const Card3 = ({image, text, setCurrentActor, actorId}, ref) => {
     const [firstname, others] = splitName(text);
-    
+
     const handleClick = () => {
         setCurrentActor(actorId)
-        scroll.scrollTo("featured-actor", {})
+        scroller.scrollTo("featured-actor", {
+            smooth: true,   
+        })
     }
 
     return (

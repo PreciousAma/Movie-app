@@ -7,6 +7,7 @@ import PageButtons from '../reuseables/PageButtons';
 import { Api } from '../utils/Api';
 import Card3 from '../reuseables/Card3';
 import Flicking from "@egjs/react-flicking";
+import { Element } from 'react-scroll';
 
 
 const Actors = ({ name }) => {
@@ -65,7 +66,10 @@ const Actors = ({ name }) => {
             />
           ))}
          </Flicking>
-         {currentActor && <FeaturedActors currentActor={currentActor} />}
+
+         <Element name="featured-actor">
+              {currentActor && <FeaturedActors currentActor={currentActor} />}
+         </Element>
 
         </section>
     );

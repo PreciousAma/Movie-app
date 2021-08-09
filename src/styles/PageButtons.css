@@ -11,10 +11,10 @@
     display: none;
 }
 .pagination .button:hover {
-    background: #F3353E;
+    background: #7c272b;
     /* mix-blend-mode: normal; */
-    opacity: 0.61;
-    border-color: #FF6B00;
+    /* opacity: 0.61; */
+    border-color: #7c272b;
     cursor: pointer;
     /* box-sizing: border-box; */ 
     color: #FFFFFF;

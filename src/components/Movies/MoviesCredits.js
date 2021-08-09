@@ -19,7 +19,7 @@ const MoviesCredits = ({ currentActor }) => {
           setIsLoading(true);
           const { data } = await Api.get(`/person/${currentActor}/movie_credits`);
           const sortedMovies = data.cast.sort((a, b) => new Date(b.release_date) - new Date(a.release_date) );
-          setResult(sortedMovies);
+          setResult(sortedMovies.slice(0, 100));
         } catch (error) {
           const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
           console.error({ errorMessage });
