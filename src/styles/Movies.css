@@ -1,5 +1,9 @@
 .movies {
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.movies .movies-contents {
+    min-height: 177.61px; 
 }
 
 
@@ -9,8 +13,8 @@
     align-items: flex-start;
 }
 
-.movies .subtitle {
-    letter-spacing: 5px;
+.movies .header__subtitle {
+    letter-spacing: 7px;
 }
 
 /* card */
@@ -26,8 +30,9 @@
 /* Categories */
 
 .categories {
-    margin-top: 5px;
+    margin-top: 10px;
 }
+
 
 .categories .categories__nav--items {
     display: flex; 
@@ -50,7 +55,13 @@
     mix-blend-mode: normal;
     opacity: 0.5;
     text-transform: uppercase;
-    font-size: 18px
+    font-size: 14px
+}
+
+.categories .loader {
+    text-align: center;
+    margin-top: 30px;
+    
 }
 
 .nav__link.active {
@@ -76,14 +87,37 @@
     justify-content: space-between;
 }
 
+
+/*MEDIA QUERY*/
+@media only screen and (min-width: 768px) {
+    .movies .movies-contents {
+        min-height: 285.63px; 
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .movies .movies-contents  {
+        min-height: 253.56px; 
+    }
+}
+
+    
 @media only screen and (min-width: 1280px) {
     .movies {
         margin-top: 90px;
     } 
 
+    .movies .movies-contents  {
+        min-height: 400.39px; 
+    }
+
     /* Categories */
     .categories {
         margin-top: 80px;
+    }
+
+    .categories .nav__link {
+        font-size: 18px;
     }
 
 }

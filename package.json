@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@egjs/flicking-plugins": "^4.1.0",
-    "@egjs/react-flicking": "^4.1.0",
+    "@egjs/react-flicking": "4.2.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -16,9 +16,11 @@
     "react-awesome-stars-rating": "^0.4.0",
     "react-dom": "^17.0.2",
     "react-lines-ellipsis": "^0.15.0",
+    "react-loader-spinner": "^4.0.0",
     "react-query": "^3.16.0",
     "react-responsive-carousel": "^3.2.18",
     "react-scripts": "4.0.3",
+    "react-scroll": "^1.8.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

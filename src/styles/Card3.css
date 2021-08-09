@@ -14,11 +14,17 @@
 .card3 .card3__image {
     display: flex;
     border-radius: 6px;
+    overflow: hidden;
+}
+
+.card3 .card3__image:hover .image {
+    transform: scale(1.2);
 }
 
 .card3 .image {
     width: 100%;
     border-radius: 6px;
+    transition: transform .5s ease;
 }
 
 .card3 .card3__texts {

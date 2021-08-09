@@ -1,6 +1,6 @@
 /* Actors */
 .actors {
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .actors .flicking-actors {
@@ -28,10 +28,16 @@
 ******************************/
 
 .featured-actor {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.featured-actor .loader {
+    text-align: center;
+    margin-top: 20px;
+    
 }
 
 .featured-actor__content {
@@ -60,7 +66,7 @@
     mix-blend-mode: normal;
     opacity: 0.5;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 14px;
     /* margin-left: 32.5%; */
 }
 
@@ -160,6 +166,14 @@
     
     .featured-actor__card .card2 {
         flex-basis: 24%;
+    }
+
+    .featured-actor .nav__link {
+        font-size: 18px;
+    }
+
+    .featured-actor {
+        margin-top: 80px;
     }
 }
 
