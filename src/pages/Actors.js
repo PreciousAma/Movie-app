@@ -7,6 +7,7 @@ import PageButtons from '../reuseables/PageButtons';
 import { Api } from '../utils/Api';
 import Card3 from '../reuseables/Card3';
 import Flicking from "@egjs/react-flicking";
+import { Element } from 'react-scroll';
 
 
 const Actors = ({ name }) => {
@@ -49,22 +50,26 @@ const Actors = ({ name }) => {
         <Flicking 
             align="prev"
             ref={flicking} 
-            bound 
-            moveType="freeScroll"
+            bound
+            moveType="snap"
             preventClickOnDrag
             className="flicking-actors"
          >
          {actors.map((actor, index) => (
             <Card3
               key={actor.id}
-              onClick={() => setCurrentActor(actor.id)}
+              actorId={actor.id}
+              setCurrentActor={setCurrentActor}
               index={index}
               image={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
               text={actor.name}
             />
           ))}
          </Flicking>
-         {currentActor && <FeaturedActors currentActor={currentActor} />}
+
+         <Element name="featured-actor">
+              {currentActor && <FeaturedActors currentActor={currentActor} />}
+         </Element>
 
         </section>
     );

@@ -23,9 +23,9 @@ const Categories = () => {
                         <li className={clsx('nav__link', tabs[activeTab] === 2 && 'active')} onClick={() => setActiveTab('upcoming')}>Upcoming</li>
                     </ul>
                 </div>
+                {activeTab === 'popular' && <Popular ref={flicking} />}
+                {activeTab === 'upcoming' && <Upcoming ref={flicking} />}
             </div>
-            {activeTab === 'popular' && <Popular ref={flicking} />}
-            {activeTab === 'upcoming' && <Upcoming ref={flicking} />}
         </>
     )
 }

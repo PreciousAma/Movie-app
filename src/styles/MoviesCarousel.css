@@ -5,7 +5,8 @@
 
 
 .moviescarousel .flicking-viewport {
-    height: 100vh;
+    /* height: 100vh; */
+    height: 80vh;
 }
 
 
@@ -175,5 +176,9 @@
 @media only screen and (min-width: 1280px) {
     .moviescarousel {
         display: block;
+    }
+
+    .moviescarousel .flicking-viewport {
+        height: 100vh; 
     }
 }

@@ -28,7 +28,7 @@ const FeaturedActors = ({ currentActor }) => {
 
     const [firstname, othernames] = splitName(data.name);
     return (
-        <section className="featured-actor">
+        <section className="featured-actor" >
           <div className="featured-actor__content">
             <div className="featured-actor__texts">
               <h2 className="title">
