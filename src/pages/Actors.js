@@ -49,15 +49,16 @@ const Actors = ({ name }) => {
         <Flicking 
             align="prev"
             ref={flicking} 
-            bound 
-            moveType="freeScroll"
+            bound
+            moveType="snap"
             preventClickOnDrag
             className="flicking-actors"
          >
          {actors.map((actor, index) => (
             <Card3
               key={actor.id}
-              onClick={() => setCurrentActor(actor.id)}
+              actorId={actor.id}
+              setCurrentActor={setCurrentActor}
               index={index}
               image={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
               text={actor.name}

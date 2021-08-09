@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Api } from '../../utils/Api';
 import Flicking from "@egjs/react-flicking";
 import Card2 from '../../reuseables/Card2';
+import Loader from "react-loader-spinner";
 
 const MoviesCredits = ({ currentActor }) => {
     const [result, setResult] = useState([]);
@@ -9,17 +10,16 @@ const MoviesCredits = ({ currentActor }) => {
     const flicking = useRef(null);
 
     useEffect(() => {
-        setIsLoading(true);
         getMoviesCredits();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentActor]);
 
     const getMoviesCredits = async () => {
         try {
+          setIsLoading(true);
           const { data } = await Api.get(`/person/${currentActor}/movie_credits`);
           const sortedMovies = data.cast.sort((a, b) => new Date(b.release_date) - new Date(a.release_date) );
           setResult(sortedMovies);
-          setIsLoading(false);
         } catch (error) {
           const errorMessage = error.isAxiosError ? error.response.data.status_message : error.message;
           console.error({ errorMessage });
@@ -30,9 +30,9 @@ const MoviesCredits = ({ currentActor }) => {
 
     return (
       <>
-        {!isLoading ? <div className="featured-actor__items">
+         <div className="featured-actor__items">
           <h2 className="nav__link active">Movies</h2>
-            <Flicking 
+          {!isLoading ? <Flicking 
               align="prev"
               ref={flicking}
               bound
@@ -52,8 +52,8 @@ const MoviesCredits = ({ currentActor }) => {
               
                 return null;
               })}
-            </Flicking>
-        </div> : null}
+            </Flicking> : <Loader type="Oval" color="#F3353E" height={90} width={90} className="loader"  />}
+        </div>
       </>
     )
 }

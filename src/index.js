@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "@egjs/react-flicking/dist/flicking.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 configResponsive({

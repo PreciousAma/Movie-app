@@ -27,6 +27,7 @@ const MovieList = (props, ref) => {
         ref={ref}
         bound
         moveType="freeScroll"
+        className="movies-contents"
       >
         {data.map((card, index) => (
           <Card
